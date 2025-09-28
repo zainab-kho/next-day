@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+        html.preload {
+            visibility: hidden;
+        }
+    </style>
+    <script>
+        document.documentElement.classList.add('preload');
+        try {
+            const user = JSON.parse(localStorage.getItem('userData'));
+            if (user?.theme) {
+                document.documentElement.classList.add(user.theme);
+            }
+        } catch (e) { }
+        window.addEventListener('DOMContentLoaded', () => {
+            document.documentElement.classList.remove('preload');
+        });
+    </script>
+
+    <title>Next Day</title>
+
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <div id="app">
+        <header>
+            <div class="page-buttons">
+                <div id="refreshBtn" class="refresh-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-rotate-ccw">
+                        <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+                        <path d="M3 3v5h5" />
+                    </svg>
+                </div>
+            </div>
+            <h3>next day</h3>
+            <div class="button-container">
+                <button id="minimizeBtn" class="minimize">
+                    <img id="minimizeIcon" src="assets/blue-min.png" alt="minimize">
+                </button>
+                <button id="closeBtn" class="close">
+                    <img id="closeIcon" src="assets/blue-close.png" alt="close">
+                </button>
+            </div>
+
+        </header>
+
+        <main>
+            <div class="counter-container">
+                <div class="counterTitle">
+                    <h2>days left</h2>
+                </div>
+
+                <div class="goalName">
+                    <h3></h3>
+                </div>
+
+                <div class="hiddenContent">
+                    <div class="counter-container">
+                        <div class="goalsScroll">
+                            <div class="goalsList"></div>
+                        </div>
+                    </div>
+
+                    <div class="restContainer">
+                        <div class="rest-btn">rest day</div>
+                    </div>
+
+                    <div class="progressContainer">
+                        <div class="progressBarOuter">
+                            <div class="progress-fill"></div>
+                        </div>
+                        <p class="progress-text">0%</p>
+                    </div>
+                </div>
+
+                <div class="alert">
+                    <div class="alert-message"></div>
+                    <div class="option-btns">
+                        <div class="yes-btn">yes</div>
+                        <div class="no-btn">no</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <script src="counter-page.js"></script>
+    </div>
+</body>
+
+</html>

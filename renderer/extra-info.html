@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    html.preload {
+      visibility: hidden;
+    }
+  </style>
+  <script>
+    document.documentElement.classList.add('preload');
+    try {
+      const user = JSON.parse(localStorage.getItem('userData'));
+      if (user?.theme) {
+        document.documentElement.classList.add(user.theme);
+      }
+    } catch (e) { }
+    window.addEventListener('DOMContentLoaded', () => {
+      document.documentElement.classList.remove('preload');
+    });
+  </script>
+
+  <title>Next Day</title>
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <header>
+    <h3>next day</h3>
+    <div class="button-container">
+      <button id="minimizeBtn" class="minimize">
+        <img id="minimizeIcon" src="assets/blue-min.png" alt="minimize">
+      </button>
+      <button id="closeBtn" class="close">
+        <img id="closeIcon" src="assets/blue-close.png" alt="close">
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="title">
+        <h2>creating</h2>
+      </div>
+
+      <div id="formbox">
+
+        <div class="formInfo">
+          <div class="formRow">
+            <label>start:</label>
+            <input type="text" id="startDateInput" placeholder="MM/DD/YYYY" />
+          </div>
+          <span id="dateError">please enter a valid date</span>
+
+          <div class="formRow">
+            <label>rest days?</label>
+            <input type="number" id="restDaysInput" value="0" />
+          </div>
+          <span id="restDaysError"></span>
+
+          <div class="formRow">
+            <label>theme:</label>
+            <div class="themes">
+              <div class="theme-blue" style="background-color: #768fbf"></div>
+              <div class="theme-turqoise" style="background-color: #6bb69e"></div>
+              <div class="theme-yellow" style="background-color: #ffc953"></div>
+              <div class="theme-green" style="background-color: #a3b38f"></div>
+              <div class="theme-pink" style="background-color: #f995ab"></div>
+              <div class="theme-purple" style="background-color: #ceaeff"></div>
+            </div>
+          </div>
+          <span id="themeError">please pick a theme</span>
+
+          <div class="formRow">
+            <div class="countOptions">
+              <div class="countdown">count down</div>
+              <div class="countup">count up</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="submitRow">
+          <button id="cancelBtn">cancel</button>
+          <button id="submitBtn">submit</button>
+        </div>
+  </main>
+
+  <script src="extra-info.js"></script>
+</body>
+
+</html>

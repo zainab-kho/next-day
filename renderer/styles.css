@@ -1,0 +1,517 @@
+@font-face {
+  font-family: 'Pixelify Sans';
+  src: url('./fonts/PixelifySans-Regular.ttf') format('truetype');
+}
+
+* {
+    font-family: 'Pixelify Sans', sans-serif;
+    font-weight: normal;
+    outline: none;
+}
+
+html,
+body {
+    background: transparent;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+  transition: opacity 0.25s ease-in;
+}
+
+:root {
+    --darkbackground: #768fbf;
+    --lightbackground: #cad1e0;
+    --verylightbackground: #f9fbff;
+    --checked: #99a1b2;
+    --border: #607295;
+    --error: #b55c5c;
+}
+
+html.blue-theme {
+    --darkbackground: #768fbf;
+    --lightbackground: #cad1e0;
+    --verylightbackground: #f9fbff;
+    --checked: #99a1b2;
+    --border: #607295;
+    --error: #b55c5c;
+}
+
+html.turqoise-theme {
+    --darkbackground: #7DB49F;
+    --lightbackground: #BBF7E1;
+    --verylightbackground: #f9fffd;
+    --checked: #99b2a8;
+    --border: #53947B;
+    --error: #b55c5c;
+}
+
+html.yellow-theme {
+    --darkbackground: #F7CB68;
+    --lightbackground: #FEFCC5;
+    --verylightbackground: #fffef9;
+    --checked: #b2ab99;
+    --border: #F4B945;
+    --error: #b55c5c;
+}
+
+html.green-theme {
+    --darkbackground: #A6B392;
+    --lightbackground: #EBFECB;
+    --verylightbackground: #fcfff9;
+    --checked: #a3b299;
+    --border: #8B967B;
+    --error: #b55c5c;
+}
+
+html.pink-theme {
+    --darkbackground: #EB9AAB;
+    --lightbackground: #F0C4C3;
+    --verylightbackground: #fff9f9;
+    --checked: #b2999c;
+    --border: #E87B80;
+    --error: #b55c5c;
+}
+
+html.purple-theme {
+    --darkbackground: #C9AFFA;
+    --lightbackground: #EDE4FD;
+    --verylightbackground: #fdf9ff;
+    --checked: #a799b2;
+    --border: #A284D9;
+    --error: #b55c5c;
+}
+
+
+body {
+    background: var(--darkbackground);
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    font-size: 30px;
+    color: var(--border);
+}
+
+h3 {
+    font-size: 19px;
+}
+
+header {
+    -webkit-app-region: drag;
+    background-color: var(--darkbackground);
+    height: 33px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header h3 {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+button,
+.button-container,
+#refreshBtn {
+    -webkit-app-region: no-drag;
+    /* so buttons can be clicked */
+}
+
+.button-container button img {
+    width: 22x;
+    height: 22px;
+    image-rendering: pixelated;
+}
+
+.button-container button {
+    padding: 2px;
+    margin: 0 3px;
+    background: none;
+    border: none;
+    cursor: default;
+}
+
+.button-container {
+    display: flex;
+    position: absolute;
+    bottom: 10px;
+    top: 8.5px;
+    gap: 6px;
+    --webkit-app-region: no-drag;
+}
+
+.button-container {
+    right: 7px;
+}
+
+.button-container button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 22px;
+    height: 22px;
+    border: .5px solid var(--border);
+    -webkit-app-region: no-drag;
+}
+
+.button-container button img {
+    width: 20px;
+    height: 20px;
+}
+
+/* MAIN LAYOUT */
+main {
+    position: absolute;
+    height: 89%;
+    inset: auto 10px 10px 10px;
+    border: 3px solid var(--border);
+    background: var(--lightbackground);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#formbox {
+    width: 300px;
+    height: 200px;
+    padding: 20px;
+}
+
+.formInfo {
+    width: 300px;
+    height: 190px;
+}
+
+.formRow {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+label {
+    width: 50px;
+    font-size: 16px;
+    color: #000;
+}
+
+/* INPUTS */
+#dateInput,
+#titleInput,
+#startDateInput,
+#restDaysInput {
+    font-size: 14px;
+    width: 200px;
+    height: 19px;
+    margin-left: 10px;
+    border: 1.5px solid var(--border);
+    background-color: var(--verylightbackground);
+}
+
+/* GOALS */
+.goalsForm {
+    display: flex;
+    align-items: flex-start;
+}
+
+.goalsContainer {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    flex-grow: 1;
+    height: 75px;
+    overflow: auto;
+}
+
+.checkbox {
+    margin: 0;
+    width: 8px;
+    height: 8px;
+    border: 1.5px solid var(--border);
+    background: none;
+}
+
+.goalInput {
+    margin-left: 5px;
+    font-size: 14px;
+    background: transparent;
+    border: none;
+}
+
+.goalRow,
+.counterGoalRow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 204px;
+    height: 19px;
+}
+
+.goalBoxChecked {
+    background-color: var(--lightbackground);
+}
+
+.goalsScroll {
+    width: 250px;
+    height: 170px;
+    overflow-y: auto;
+    padding-right: 5px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.goalBox {
+    margin: 0;
+    width: 9px;
+    height: 9px;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    border: 1.5px solid var(--border);
+    background: none;
+    font-size: 20px;
+    color: var(--error);
+    user-select: none;
+    cursor: pointer;
+}
+
+.goalText {
+    font-size: 14px;
+    color: #000;
+    max-width: 200px;
+    cursor: pointer;
+}
+
+.goalTextChecked {
+    text-decoration: line-through;
+    color: var(--checked);
+}
+
+.ghostRow {
+    opacity: 0.4;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.ghostRow input {
+    pointer-events: none;
+}
+
+.ghostRow.hidden {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* BUTTONS */
+.submitRow {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+#submitBtn,
+#cancelBtn,
+.countdown,
+.countup {
+    border: 1.5px solid var(--border);
+    background-color: transparent;
+    color: var(--border);
+    font-size: 13px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90px;
+    height: 20px;
+}
+
+#submitBtn:hover,
+#cancelBtn:hover,
+.countdown:hover,
+.countup:hover,
+.countOptions div.selected-count {
+    color: var(--lightbackground);
+    background-color: var(--border);
+}
+
+.selected-theme {
+    outline: 0.5px solid black;
+}
+
+/* ERRORS */
+#dateError,
+#titleError,
+#themeError,
+#restDaysError {
+    font-size: 12px;
+    color: var(--error);
+    position: relative;
+    top: -10px;
+    margin-left: 60px;
+    height: 14px;
+    visibility: hidden;
+}
+
+/* THEME OPTIONS */
+.themes {
+    display: flex;
+    margin-left: 10px;
+    gap: 20px;
+}
+
+.theme-blue,
+.theme-turqoise,
+.theme-yellow,
+.theme-green,
+.theme-pink,
+.theme-purple {
+    width: 15px;
+    height: 15px;
+    border: 1.5px solid black;
+    cursor: pointer;
+}
+
+.countOptions {
+    display: flex;
+    justify-content: space-around;
+    width: 400px;
+}
+
+/* COUNTER PAGE */
+#refreshBtn {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    cursor: pointer;
+}
+
+#refreshBtn svg {
+    stroke: var(--border);
+    transition: transform 0.3s ease;
+}
+
+#refreshBtn:hover svg {
+    transform: rotate(90deg);
+}
+
+.counter-container {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.counterTitle h2 {
+    color: var(--border);
+}
+
+.goalName {
+    font-size: 19px;
+    margin-top: -20px;
+    margin-bottom: 20px;
+}
+
+.restContainer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.rest-btn {
+    border: 1.5px solid var(--border);
+    width: 60px;
+    color: var(--border);
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.rest-btn:hover {
+    color: var(--lightbackground);
+    background: var(--border);
+}
+
+/* PROGRESS BAR */
+.progressContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.progressBarOuter {
+    width: 100%;
+    max-width: 250px;
+    height: 17px;
+    background-color: var(--lightbackground);
+    border: 1.5px solid var(--border);
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: var(--border);
+    width: 0%;
+    transition: width 0.3s ease-in-out;
+}
+
+.progress-text {
+    margin-top: 6px;
+    font-size: 17px;
+    color: #000;
+}
+
+/* ALERT */
+.alert {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--lightbackground);
+    border: 2px solid var(--border);
+    padding: 20px;
+    z-index: 999;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 250px;
+    height: 100px;
+    visibility: hidden;
+}
+
+.alert-message {
+    padding-bottom: 30px;
+}
+
+.option-btns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.yes-btn,
+.no-btn {
+    width: 50px;
+    padding: 1px;
+    text-align: center;
+    color: var(--border);
+    border: 2px solid var(--border);
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.yes-btn:hover,
+.no-btn:hover {
+    color: var(--lightbackground);
+    background: var(--border);
+}

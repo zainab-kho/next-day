@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    html.preload {
+      visibility: hidden;
+    }
+  </style>
+  <script>
+    document.documentElement.classList.add('preload');
+    try {
+      const user = JSON.parse(localStorage.getItem('userData'));
+      if (user?.theme) {
+        document.documentElement.classList.add(user.theme);
+      }
+    } catch (e) { }
+    window.addEventListener('DOMContentLoaded', () => {
+      document.documentElement.classList.remove('preload');
+    });
+  </script>
+
+  <title>Next Day</title>
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <header>
+    <h3>next day</h3>
+    <div class="button-container">
+      <button id="minimizeBtn" class="minimize">
+        <img src="assets/blue-min.png" alt="minimize">
+      </button>
+      <button id="closeBtn" class="close">
+        <img src="assets/blue-close.png" alt="close">
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="title">
+        <h2>create</h2>
+      </div>
+
+      <div id="formbox">
+
+        <div class="formInfo">
+          <div class="formRow">
+            <label>date:</label>
+            <input type="text" id="dateInput" placeholder="MM/DD/YYYY" />
+          </div>
+          <span id="dateError">please enter a valid date</span>
+
+          <div class="formRow">
+            <label>title:</label>
+            <input type="text" id="titleInput" />
+          </div>
+          <span id="titleError">please enter a valid title</span>
+
+          <div class="formRow goalsForm">
+            <label class="goalLabel">goals:</label>
+            <div class="goalsContainer">
+              <div class="goalRow">
+                <div class="checkbox"></div>
+                <input type="text" class="goalInput" placeholder="enter a goal">
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="submitRow">
+          <button id="submitBtn">submit</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="renderer.js"></script>
+</body>
+
+</html>
